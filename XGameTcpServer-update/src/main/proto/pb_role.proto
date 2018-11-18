@@ -1,0 +1,63 @@
+syntax = "proto2";
+package PB_MEUMX;
+
+import "pb_buddy.proto";
+
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyRole";
+
+
+
+//创建角色
+message CreateRole {
+    required  string nickname = 1;//昵称
+    required  sint32 sex = 2;//性别 1：男 0：女
+}
+
+
+//选择角色
+message SelectRole {
+    required  string sign = 1;//角色唯一游戏编号
+}
+
+
+//用户基础信息
+message Role {
+    required string sign = 1;//角色游戏编号
+    optional sint32 level = 2;//等级
+    optional sint64 exp = 3;//经验
+    optional string password = 4;//角色锁定密码
+    optional string nickname = 5;//昵称
+    optional string head = 6;//头像
+    optional sint32 sex = 7;//性别
+    optional sint64 gold = 8;//金币
+    optional sint64 stone = 9;//钻石/宝石
+    optional sint64 coin = 10;//银币
+    optional sint32 mood = 11;//心情 上线100
+    optional sint32 hp = 12;//体力 上线100
+    optional sint32 charm = 13;//气质
+    optional sint32 making = 14;//气质
+    optional sint32 shape = 15;//体型
+    optional sint32 makeup = 16;//妆容
+    optional sint32 intelligence = 17;//智力
+    optional sint32 benevolence = 18;//爱心
+    optional string del = 19;//删除剩余时间
+    optional string creatTime = 20;//创建时间
+}
+
+message RoleList {
+    optional string last = 1;//上次登录的角色(uid+编号)
+    repeated Role role =2;//角色列表
+}
+
+
+//进入游戏后主体信息
+message EnterGame {
+    optional Role role = 1;//进入游戏的角色信息
+    optional BuddyList buddylist =2; //伙伴列表
+    optional PieceList piecelist =3;//伙伴碎片列表
+}
+
+

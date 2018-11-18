@@ -1,0 +1,26 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyTcpLogin";
+
+
+
+
+//Tcp登录请求消息体
+message LoginReq {
+    required   sint64 uid = 1;//唯一标识
+    required   string token = 2;//token
+}
+
+
+
+//Tcp登录返回消息体
+message LoginResp {
+    required sint64 uid = 1;//唯一标识
+    required string token = 2;//token
+}
+
+
+

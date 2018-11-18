@@ -1,0 +1,40 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyComm";
+
+
+//字符型请求消息体
+message StrReq {
+  optional  string s1 = 1;//第1个字段
+  optional  string s2 = 2;//第2个字段
+  optional  string s3 = 3;//第3个字段
+  optional  string s4 = 4;//第4个字段
+  optional  string s5 = 5;//第5个字段
+  optional  string s6 = 6;//第6个字段
+  optional  string s7 = 7;//第7个字段
+  optional  string s8 = 8;//第8个字段
+  optional  string s9 = 9;//第9个字段
+  optional  string s10 = 10;//第10个字段
+}
+
+//字符型返回消息体
+message StrResp {
+    optional  string s1 = 1;//第1个字段
+    optional  string s2 = 2;//第2个字段
+    optional  string s3 = 3;//第3个字段
+    optional  string s4 = 4;//第4个字段
+    optional  string s5 = 5;//第5个字段
+    optional  string s6 = 6;//第6个字段
+    optional  string s7 = 7;//第7个字段
+    optional  string s8 = 8;//第8个字段
+    optional  string s9 = 9;//第9个字段
+    optional  string s10 = 10;//第10个字段
+}
+
+
+
+
+

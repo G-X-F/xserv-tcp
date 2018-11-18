@@ -1,0 +1,51 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyPacket";
+
+
+
+
+
+//添加物品到背包  物品、装备、时装3个背包
+message CreatItem {
+    optional  sint32 itemid = 1;//物品id 根据物品类型自动进入不同的背包
+    optional  sint32 num = 2;//数量
+}
+
+
+//使用物品/出售
+message UseItems {
+    optional  sint64 id = 1;//物品id
+    optional  sint32 num = 2;//使用/销售数量
+}
+
+//物品
+message Item {
+    required  sint64 id = 1;//唯一标识
+    optional  sint64 itemid = 2;//物品配置表id
+    optional  sint32 num = 3;//数量
+}
+
+
+//选择背包
+message SelectPacket {
+    optional  sint32 pkt = 1;//背包编号
+}
+
+
+//销售物品
+message SellItems {
+    optional  sint64 id = 1;//物品id
+    optional  sint32 num = 2;//数量
+}
+
+//物品列表
+message Items {
+    optional sint32 pkt = 1;//背包编号
+    repeated Item its = 2;//物品
+    repeated Item new = 3;//新物品
+
+}

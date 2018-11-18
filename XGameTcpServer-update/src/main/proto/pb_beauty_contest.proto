@@ -1,0 +1,33 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyBeautyContest";
+
+
+
+//第一回合数据
+message Round {
+  repeated  Action action = 1;
+ }
+
+
+ //动作行为
+ message Action {
+ required  sint32 type = 1;//描述类型 0：技能释放动作 1：释放结果
+ optional  sint64 id = 2;//动作主体
+ optional  sint64 target = 3;//释放目标
+ optional  sint64 skill = 4;//释放技能
+ optional  sint64 effect = 5;//效果
+}
+
+
+//比美数据
+message Contest {
+    repeated string record = 1;//播放记录
+}
+
+
+
+

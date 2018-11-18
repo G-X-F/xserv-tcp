@@ -1,0 +1,53 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyHttpLogin";
+
+
+
+//普通登录请求消息体
+message NormalLoginReq {
+  optional  string account = 1;//账户
+  optional  string passwd = 2;//密码
+  optional  string token = 3;//token
+  optional  sint64 uid = 4;//唯一标识
+}
+
+//手机登录请求消息体
+message PhoneLoginReq {
+  required string mobile = 1;//手机号
+  optional string passwd = 2;//密码
+  optional sint32 smscode=3;//短信验证码
+}
+
+
+
+//微信注册/登录请求消息体
+message WeixinLoginReq {
+    required string appid=1;//微信登录appid
+    required string appsecret = 2;//微信登录app密钥
+    required string code = 3;//调起微信授权码
+    required string accesstoken=4;//微信登录后返回accesstoken
+    required string openid=5;//用户openid
+    required sint32 cpno = 6;//分区编号
+    required sint64 uid = 7;//唯一标识
+}
+
+
+
+//普通登录返回消息体
+message NormalLoginResp {
+    required  sint64 uid = 1;//唯一标识
+    required  string token = 2;//token
+}
+
+//微信登录返回消息体
+message WeixinLoginResp {
+    required  sint64 uid = 1;//唯一标识
+    required  string token = 2;//token
+    required  string openid=3;//用户openid
+    required  string accesstoken=4;//微信登录后返回accesstoken
+}
+

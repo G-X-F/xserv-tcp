@@ -1,0 +1,69 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Netty WebSocket测试工具</title>
+</head>
+
+<br>
+<body style="text-align:left;" >
+	<script type="text/javascript">
+
+		//-----------------------------------------------------------------------------
+		//开始
+		var socket ;
+		if(!window.WebSocket){
+			window.WebSocket = window.MozWebSocket;
+		}
+
+
+		//建立连接
+		if(window.WebSocket){
+
+			socket = new WebSocket("ws://localhost:8080/");
+			socket.onmessage=function(event){
+				var response = document.getElementById("responseText");
+				response.value += "\n"+event.data;
+			};
+
+			
+			socket.onopen = function(event){
+				var response = document.getElementById("responseText");
+				response.value="WebSocket open";
+			};
+
+			socket.onclose = function(event){
+				var response = document.getElementById("responseText");
+				response.value="WebSocket closed";
+			};
+		}else{
+			alert("sorry,your browser does not support WebSocket");
+		}
+
+
+		//发送消息
+		function send(message){
+			if(!window.WebSocket){
+				return;
+			}
+
+			if(socket.readyState == WebSocket.OPEN){
+				socket.send(message);
+			}else{
+				alert("WebSocket is disconnect! ")
+			}
+		}
+
+
+
+	</script>
+	
+	<form onsubmit="return false;">
+		<input type="text" id="message" style="width:800px" value="input messages!"/>
+		<input type="button" value="send WebSocket message" onclick="send(this.form.message.value)">
+		<br><br>
+		<hr color="blue"/>
+		<h3>server response</h3>
+		<textarea id="responseText" style="width:800px;height:300px;" value="socket closed"></textarea>
+	</form>
+</body>
+</html>

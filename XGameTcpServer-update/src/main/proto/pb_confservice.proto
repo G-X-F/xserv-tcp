@@ -1,0 +1,43 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyConfService";
+
+
+
+//请求消息体
+message ConfReq {
+ required  string table = 1;//表名(中文)
+ required  sint32 recid=2;//记录id
+}
+
+
+
+//请求消息体
+message ListReq {
+    required   string table = 1;//表名(中文)
+    repeated   sint32 recid=2;//记录id
+}
+
+
+//批量删除KEY
+message BatchReq {
+    required   string keys = 1;//需要删除的匹配
+}
+
+
+
+//记录信息
+message Record {
+    required string key = 1;//key
+    required string value = 2;//记录
+}
+
+//配置信息记录
+message ListResp {
+     repeated Record record = 1;//记录
+}
+
+

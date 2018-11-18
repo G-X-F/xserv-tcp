@@ -1,0 +1,32 @@
+syntax = "proto2";
+package PB_MEUMX;
+
+import "pb_packet.proto";
+
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyFreshData";
+
+
+
+
+
+//刷新数据
+message Numbers {
+    optional  sint64 num = 1;//数量
+}
+
+//经验升级
+message ExpUp {
+    optional  sint32 level = 1;//数量
+    optional  sint64 exp = 2;//数量
+}
+
+
+//更新物品列表
+message PacketItems {
+    optional sint32 pkt = 1;//背包编号
+    repeated Item its = 2;//物品
+}
+

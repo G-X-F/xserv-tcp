@@ -1,0 +1,122 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyBuddy";
+
+
+
+//创建伙伴
+message CreateBuddy {
+    required  string itemid = 1;//背包数值配置表/物品配置表/伙伴id
+}
+
+//创建伙伴
+message DeleteBuddy {
+    required  sint32 bid = 1;//伙伴ID
+}
+
+//伙伴加锁/解锁
+message LockBuddy {
+    required  sint32 bid = 1;//伙伴ID
+    required  sint32 lock = 2;//锁： 1：锁住 0：解锁
+}
+
+//伙伴升级
+message LevelUp {
+    required  sint32 bid = 1;//伙伴ID
+    required  sint32 itemid = 2;//经验书配置id
+    required  sint32 num = 3;//经验书个数
+}
+
+//伙伴升星
+message StarUp {
+    required  sint32 bid = 1;//伙伴ID
+    repeated  sint32 cost = 2;//消耗的伙伴id列表
+}
+
+
+
+//伙伴基础信息
+message Buddy {
+    required sint32 id = 1;//唯一标识(随机数)
+    optional sint32 level = 2;//等级
+    optional sint64 exp = 3;//经验
+    optional string name = 4;//细胞名称
+    optional sint32 element = 5;//元素属性 金木水火土(1~5)
+    optional sint32 pveskill = 6;//pve技能
+    optional sint32 pvpskill = 7;//pvp技能
+    optional sint32 star = 8;//星级
+    optional sint32 atk = 9;//攻击
+    optional sint32 def = 10;//防御
+    optional sint32 hp = 11;//生命
+    optional sint32 crit = 12;//暴击
+    optional sint32 crit_def = 13;//抗暴
+    optional sint32 crit_atk = 14;//暴击伤害
+    optional sint32 hit_rat = 15;//命中
+    optional sint32 dodge = 16;//闪避
+    optional sint32 dice = 17;//骰面
+    optional sint32 cell_id = 18;//细胞ID
+    optional sint32 speed = 19;//速度
+    optional sint32 lock = 20;//锁 1：锁住 0：未锁
+    optional sint32 atk_plus = 21;//攻击附加
+    optional sint32 def_plus = 22;//防御附加
+    optional sint32 hp_plus = 23;//生命附加
+    optional sint32 strength = 24;//战力
+    optional sint32 strength_next = 25;//下一星级战力
+
+}
+
+//伙伴列表
+message BuddyList {
+    repeated Buddy buddys =1;//伙伴列表
+}
+
+
+//pve阵容
+message PveStock {
+    repeated sint32 id =1;//伙伴id 下标为位置
+}
+
+//合成伙伴碎片
+message SynPiece {
+    required sint32 cid =1;//细胞id
+    required sint32 star =2;//初始星级
+}
+
+//合成伙伴反馈
+message SynPieceResp {
+    required sint32 cid =1;//细胞id
+    required sint32 has =2;//初始星级
+    required Buddy buddy =3;//合成后的伙伴卡
+}
+
+//增加伙伴碎片
+message AddPiece {
+    required sint32 cid =1;//细胞id
+    required sint32 num =2;//数量
+}
+
+
+//伙伴碎片列表
+message PieceList {
+    repeated PieceInfo pinfo =1;//碎片
+}
+
+
+//碎片信息
+message PieceInfo {
+    optional sint32 cid =1;//细胞id
+    optional string name =2;//细胞名称
+    optional sint32 star =3;//初始星级
+    optional sint32 need =5;//合成需要数量
+    optional sint32 syn =6;//合成物品id
+    optional sint32 have =7;//拥有碎片的数量
+
+}
+
+
+
+
+

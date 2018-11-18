@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xgame-register>
+    <!-- Handler注册器 -->
+    <register name="HandlerRegister" class="com.kunda.engine.register.HandlerRegister"/>
+</xgame-register>

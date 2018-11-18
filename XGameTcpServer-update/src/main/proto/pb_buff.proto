@@ -1,0 +1,38 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyBuff";
+
+//Buff
+message Buff {
+required   sint32 id = 1;//buffid
+required   sint32 target = 2;//释放目标（1为自已，2为敌方)
+required   string name = 3;//buff名称
+required   sint32 statuid = 4;//buff状态id
+required   sint32 round = 5;//持续回合
+required   sint32 value = 6;//buff数值
+}
+
+//免疫
+message Immu {
+    required  sint32 id = 1;//免疫id
+    required  sint32 statuid = 2;//buff状态id
+    required  sint32 round = 3;//持续回合
+}
+
+//Buff状态
+message BuffStatus {
+    required  sint32 id = 1;//状态id
+    required  sint32 type = 2;//状态类型(1为增益 2为减益)
+    required  string name = 3;//状态名称
+    required  sint32 canImmu = 4;//是否可免疫(0为否 1为是)
+    required  sint32 canDisp = 5;//是否可驱散(0为否 1为是)
+    required  sint32 beffect = 6;//结算类型(0为即时生效 1为回合结束生效)
+    required  sint32 bufficon = 7;//buff图标编号
+}
+
+
+
+

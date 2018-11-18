@@ -1,0 +1,47 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodySkill";
+
+//比美技能
+message Skill {
+    required sint32 id = 1;//技能id
+    optional sint32 type = 2;//技能类型（1为主动，2为被动)
+    optional sint32 clazz = 3;//职业id
+    optional sint32 seq = 4;//技能序列
+    optional sint32 nameid = 5;//技能名称id
+    optional string name = 6;//技能名称
+    optional sint32 startlevel = 7;//开启等级
+    optional sint32 castphase = 8;//释放阶段
+    optional sint32 casttarget = 9;//释放目标
+    optional sint32 castrate = 10;//释放几率(万分之)
+    optional sint32 castsort = 11;//释放排序
+    optional sint32 coolround = 12;//冻结回合
+    optional string skilldesc = 13;//技能描述
+    optional sint32 iconid = 14;//图标Id
+    optional sint32 textid = 15;//飘字Id
+    optional sint32 level = 16;//技能等级
+    optional sint32 nextid = 17;//下一级技能id
+    optional sint32 upitemid = 18;//升级消耗道具id
+    optional sint32 upitemnum = 19;//升级消耗道具数量
+    optional sint32 effect1Id = 20;//效果1ID
+    optional sint32 effect1Rate = 21;//效果1概率
+    optional sint32 effect2Id = 22;//效果1ID
+    optional sint32 effect2Rate = 23;//效果1概率
+    optional sint32 effect3Id = 24;//效果1ID
+    optional sint32 effect3Rate = 25;//效果1概率
+}
+
+//技能请求
+message SkillReq {
+    required sint32 id = 1; //技能id
+}
+
+//技能列表
+message SkillList {
+    repeated Skill skills = 1; //技能id
+}
+
+

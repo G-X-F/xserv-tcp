@@ -1,0 +1,77 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyMail";
+
+
+
+//通告
+message CreateNotice {
+    required  sint32 id = 1;//通告id
+    repeated  string param = 2;//参数
+    required  sint32 sort = 3;//客户端用于排序索引
+    required  sint64 target = 4;//目标主体（role)
+}
+
+//系统邮件
+message SysMail {
+    required  sint64 id = 1;//邮件id
+    required  sint32 tmpid = 2;//邮件模版id
+    repeated  sint32 items = 3;//物品id
+    repeated  sint32 nums = 4;//物品数量
+}
+
+//创建邮件
+message CreatMail {
+    required  sint32 tmpid = 1;//邮件模版id
+}
+
+
+//系统邮件列表
+message MailList {
+    repeated  SysMail mlist = 1;//系统邮件列表
+}
+
+//礼品列表
+message ItemList {
+    repeated  sint32 items = 1;//物品id
+    repeated  sint32 nums = 2;//物品数量
+}
+
+
+//阅读邮件
+message ReadMail {
+    required  sint64 mailid = 1;//邮件id
+}
+
+//定向邮件
+message PatchMail {
+    required  sint64 mailid = 1;//邮件id
+    repeated  sint64 role = 2;//角色id
+}
+
+//全服邮件返回结果
+message GmSysMailResult {
+    required  sint32 tmpId = 1;//邮件模版id
+    required  sint32 wid = 2;//世界服ID
+}
+
+//GM系统请求体
+message GmSysMailParams {
+    required  sint32 tmpId = 1;//邮件模版id
+}
+
+//定向邮件返回结果
+message GmPatchMailResult {
+    required  sint32 tmpId = 1;//邮件模版id
+    required  sint32 wid = 2;//世界服ID
+    required  sint64 rid = 3;//角色id
+}
+
+//GM定向邮件请求体
+message GmPatchMailParams {
+    required  sint32 tmpId = 1;//邮件ID
+    required  sint64 rid = 2;//角色id
+}

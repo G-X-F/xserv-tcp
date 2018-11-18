@@ -1,0 +1,34 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyUser";
+
+//用户基础信息
+message UserInfo {
+    required    sint64 uid = 1;//用户唯一标识
+    optional    sint32 level = 2;//等级
+    optional    string account = 3;//账号
+    optional    string openid_oap = 4;//openid 针对公众号内的
+    optional    string nickname = 5;//昵称
+    optional    string rtoken = 6;//微信刷新用token
+    optional    string province = 7;//省
+    optional    string city = 8;//市
+    optional    string country = 9;//国家
+    optional    string mobile = 10;//手机
+    optional    string head = 11;//头像
+    optional    string ip = 12;//ip
+    optional    string sex = 13;//性别
+    optional    sint64 rmb = 14;//货币商户-金额
+    optional    string superior = 15;//上级uid
+    optional    string lstlupdate = 16;//上次升级时间
+    optional    string binsupdate = 17;//绑定上级时间
+    optional    string underling = 18;//下线列表
+    optional    string  roles = 19;//角色列表列表
+    optional    sint64 currole = 20;//当前角色
+    optional    sint64 lastworld = 21;//上次登录的世界id
+    optional    string invcode = 22;//邀请码
+    optional    string privilege = 23;//权限码列表
+    optional    string creatTime = 24;//创建时间
+}

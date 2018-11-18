@@ -1,0 +1,23 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyHeart";
+
+
+
+
+
+//普通注册请求消息体
+message BeatReq {
+   required sint64 tk = 1;//时间戳
+}
+
+
+//返回消息体
+message BeatResp {
+    required  sint64 tk = 1;//时间戳
+}
+
+

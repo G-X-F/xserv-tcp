@@ -1,0 +1,23 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义Protobuf协议交互框架类名
+option java_outer_classname = "ProtobuffFrame";
+
+
+//请求消息体
+message Request {
+  required  sint32 cmd = 1;//命令 cmd
+  required  sint32 sub =2;//命令分支/子命令
+  optional  bytes  body = 3;//数据 body
+}
+
+//响应消息体
+message Response {
+    required sint32 cmd = 1;//命令 cmd
+    required sint32 sub =2;//命令分支/子命令
+    required sint32 code = 3;//状态码 code 0 正常
+    optional bytes  body = 4;//数据 body
+}
+

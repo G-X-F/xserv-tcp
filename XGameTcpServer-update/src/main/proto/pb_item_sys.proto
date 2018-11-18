@@ -1,0 +1,17 @@
+syntax = "proto2";
+package PB_MEUMX;
+option java_package = "com.kunda.engine.model.proto";
+
+//定义通用型消息体类名
+option java_outer_classname = "PbBodyItemSys";
+
+
+
+
+
+//物品详情
+message ItemDetail {
+    optional  sint64 id = 1;//物品id
+}
+
+
